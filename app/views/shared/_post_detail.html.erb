@@ -1,0 +1,46 @@
+<td class="details" colspan="6" style="background-color: lavender;">
+  <div class="row">
+    <div class="col-md-6">
+      <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table">
+        <tbody>
+        <tr>
+          <td><b>Created By:</b></td>
+          <td><%= post[:member_profile][:user][:username] %></td>
+        </tr>
+        <tr>
+          <td><b>Event:</b></td>
+          <td><!--%= post[:event][:name] %--></td>
+        </tr>
+        <tr>
+          <td><b>Post Members:</b></td>
+          <td>
+            <% post[:post_members] && post[:post_members].each do |member| %>
+                <span><%= member[:member_profile][:user][:username]%></span>
+            <% end %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <% if post[:likes_count] > 0 || post[:comments_count] > 0%>
+        <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table table table-striped">
+          <tbody>
+          <tr>
+            <td>
+              <% if post[:likes_count] > 0 %>
+                <%= link_to 'view likes', get_likes_event_post_path(event_id, post.id) %>
+              <% end %>
+            </td>
+            <td>
+              <% if post[:likes_count] > 0 %>
+                <%= link_to 'view comments', get_comments_event_post_path(event_id, post.id) %>
+              <% end %>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</td>

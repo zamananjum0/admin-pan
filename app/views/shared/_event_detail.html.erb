@@ -1,0 +1,71 @@
+<td class="details" colspan="6" style="background-color: lavender;">
+  <div class="row">
+    <div class="col-md-6">
+      <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table">
+        <tbody>
+        <tr>
+          <td><b>Category:</b></td>
+          <!--<td><!%= event[:category].present? ? event[:category][:name] : '' %></td>-->
+        </tr>
+        <tr>
+          <td><b>#tags:</b></td>
+          <!--<td>-->
+            <!--<!% event[:hashtags] && event[:hashtags].each do |tag| %>-->
+                <!--<span><!%= tag[:name] + ',' %></span>-->
+            <!--<!% end %>-->
+          <!--</td>-->
+        </tr>
+        <tr>
+          <td><b>Event Members:</b></td>
+          <!--<td>-->
+            <!--<!% event[:event_members] && event[:event_members].each do |member| %>-->
+                <!--<span><!%= member[:member_profile][:user][:username]%></span>-->
+            <!--<!% end %>-->
+          <!--</td>-->
+        </tr>
+        <tr>
+          <td><b>Co Host:</b></td>
+          <!--<td>-->
+            <!--<!% event[:event_co_hosts] && event[:event_co_hosts].each do |member| %>-->
+                <!--<span><!%= member[:member_profile][:user][:username]%></span>-->
+            <!--<!% end %>-->
+          <!--</td>-->
+        </tr>
+        <tr>
+          <td></td>
+          <!--<td><!%= event[:message_from_host]%></td>-->
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table table table-striped">
+        <tbody>
+        <tr>
+          <td><b>#of posts</b></td>
+          <!--<td><!%= event[:post_count] %></td>-->
+          <!--<td>-->
+            <!--<!% if event[:post_count] > 0 %>-->
+                <!--<!%= link_to 'view posts', event_path(event[:id]) %>-->
+            <!--<!% end %>-->
+          <!--</td>-->
+        </tr>
+        </tbody>
+      </table>
+      <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table table table-striped">
+        <thead>
+        <th>Attachment Type</th>
+        <th>Action</th>
+        </thead>
+        <!--<tbody>-->
+        <!--<!% event[:event_attachments] && event[:event_attachments].each do |attachment| %>-->
+            <!--<tr>-->
+              <!--<td><!%= attachment[:attachment_type] %></td>-->
+              <!--<td><!%= link_to 'view file', attachment[:attachment_url], target: '_blank'%></td>-->
+            <!--</tr>-->
+        <!--<!% end %>-->
+        <!--</tbody>-->
+      </table>
+    </div>
+  </div>
+</td>

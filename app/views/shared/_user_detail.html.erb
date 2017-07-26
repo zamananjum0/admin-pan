@@ -1,0 +1,111 @@
+<td class="details" colspan="6" style="background-color: lavender;">
+  <div class="row">
+    <div class="col-md-6">
+      <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table">
+        <tbody>
+        <tr>
+          <td><b>Gender:</b></td>
+          <td><%= member_profile[:gender] || 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>DOB:</b></td>
+          <td><%= member_profile[:dob] || 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>Account Type:</b></td>
+          <td><%= member_profile[:account_type] || 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>High school:</b></td>
+          <td><%= member_profile[:high_school] || 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>Home town:</b></td>
+          <td><%= member_profile[:home_town] || 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>Contact#:</b></td>
+          <td><%= member_profile[:contact_phone] || 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>Contact Add:</b></td>
+          <td><%= member_profile[:contact_address] || 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>Gender:</b></td>
+          <td><%= member_profile[:gender] || 'Not entered' %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <% if member_profile[:events_count]  || member_profile[:posts_count]  || member_profile[:followers_count]  %>
+        <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table table table-striped">
+          <tbody>
+          <tr>
+            <td>
+              <%if member_profile[:events_count] %>
+                <%= link_to 'view events',  user_events_user_path(member_profile[:id]) %>
+              <% end %>
+            </td>
+            <td>
+              <%if member_profile[:posts_count]  %>
+                <%= link_to 'view posts',  user_posts_user_path(member_profile[:id]) %>
+              <% end %>
+            </td>
+            <td>
+              <%if member_profile[:followers_count]  %>
+                <%= link_to 'view followers',  user_followers_user_path(member_profile[:id]) %>
+              <% end %>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      <% end %>
+      <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table table table-striped">
+        <tbody>
+        <tr>
+          <td><b>Country:</b></td>
+          <td><%= member_profile[:country].present? ? member_profile[:country][:country_name] : 'Not selected' %></td>
+        </tr>
+        <tr>
+          <td><b>City:</b></td>
+          <td><%= member_profile[:city].present? ? member_profile[:city][:city_name] : 'Not selected'%></td>
+        </tr>
+        <tr>
+          <td><b>Language:</b></td>
+          <td><%= member_profile[:language].present? ? member_profile[:language][:name] : 'Not selected' %></td>
+        </tr>
+        <tr>
+          <td><b>Religion:</b></td>
+          <td><%= member_profile[:religion].present? ? member_profile[:religion][:name] : 'Not selected' %></td>
+        </tr>
+        <tr>
+          <td><b>Ethnic background:</b></td>
+          <td><%= member_profile[:ethnic_background].present? ? member_profile[:ethnic_background][:name] : 'Not entered'%></td>
+        </tr>
+        </tbody>
+      </table>
+      <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;" class="inner-table table table-striped">
+        <tbody>
+        <tr>
+          <td><b>College major:</b></td>
+          <td><%= member_profile[:college_major].present? ? member_profile[:college_major][:name] : 'Not entered'%></td>
+        </tr>
+        <tr>
+          <td><b>Occupation:</b></td>
+          <td><%= member_profile[:occupation].present? ? member_profile[:occupation][:name] : 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>Relationship status:</b></td>
+          <td><%= member_profile[:relationship_status].present? ? member_profile[:relationship_status][:name] : 'Not entered' %></td>
+        </tr>
+        <tr>
+          <td><b>Political views:</b></td>
+          <td><%= member_profile[:political_views].present? ? member_profile[:political_views][:name] : 'Not entered' %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</td>

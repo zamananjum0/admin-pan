@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Traineat Admin</title>
+    <%= csrf_meta_tags %>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render :partial => "layouts/header" %>
+    <div class="page-container row">
+      <div class="page-sidebar" id="main-menu">
+        <!-- BEGIN MINI-PROFILE -->
+        <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
+          <div class="user-info-wrapper">
+            <div class="profile-wrapper">
+              <!--<img src="assets/avatar.jpg" alt="" data-src="assets/avatar.jpg" data-src-retina="assets/avatar2x.jpg" width="69" height="69" />-->
+              <%= image_tag("avatar.jpg", :alt => "", style: "width: 69;height: 69;") %>
+            </div>
+            <div class="user-info">
+              <div class="greeting">Welcome</div>
+              <div class="username"><%= current_user.first_name %><span class="semi-bold"><%= current_user.last_name %></span></div>
+            </div>
+          </div>
+          <!-- END MINI-PROFILE -->
+          <!-- BEGIN SIDEBAR MENU -->
+          <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
+          <ul>
+            <li class="start active open ">
+              <a href="/dashboards">
+                <i class="fa fa-dashboard"></i>
+                <span class="title">Dashboard</span>
+                <span class="selected"></span>
+              </a>
+            </li>
+            <li class="">
+              <a href="/users">
+                <i class="fa fa-user"></i>
+                <span class="title">Users</span>
+              </a>
+            </li>
+
+            <li class="">
+              <a href="/posts">
+                <i class="fa fa-desktop"></i>
+                <span class="title">Posts</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="/events">
+                <i class="fa fa-table"></i>
+                <span class="title">Events</span>
+              </a>
+            </li>
+            <!--<li class="">-->
+              <!--<a href="/categories">-->
+                <!--<i class="fa fa-bars"></i>-->
+                <!--<span class="title">Categories</span>-->
+              <!--</a>-->
+            <!--</li>-->
+          </ul>
+          <!-- END SIDEBAR MENU -->
+        </div>
+      </div>
+      <!--<a href="#" class="scrollup">Scroll</a>-->
+      <div class="footer-widget">
+        <div class="progress transparent progress-small no-radius no-margin">
+          <div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="79%" style="width: 79%;"></div>
+        </div>
+        <div class="pull-right">
+          <a href='/user_sessions/<%= "#{current_profile[:id]}" %>' data-method="delete">
+            <i class="fa fa-power-off"></i>
+          </a>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>
